@@ -14,7 +14,18 @@ struct CustomContentUnavailableView: View {
     var description: String
     
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        ContentUnavailableView {
+            Image(systemName: icon)
+                .resizable()
+                .scaledToFit()
+                .frame(width: 96)
+            
+            Text(title)
+                .font(.title)
+        } description: {
+            Text(description)
+        }
+        .foregroundStyle(.tertiary)
     }
 }
 

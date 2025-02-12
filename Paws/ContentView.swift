@@ -25,13 +25,16 @@ struct ContentView: View {
                         ForEach(pets) { pet in
                             NavigationLink(destination: EmptyView()) {
                                 VStack {
-                                    
                                     if let imageData = pet.photo {
                                         if let image = UIImage(data: imageData) {
                                             Image(uiImage: image)
                                         }
                                     } else {
-                                        
+                                        Image(systemName: "pawprint.circle")
+                                            .resizable()
+                                            .scaledToFit()
+                                            .padding(40)
+                                            .foregroundStyle(.quaternary)
                                     }
                                     
                                     Spacer()

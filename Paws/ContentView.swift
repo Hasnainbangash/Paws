@@ -21,6 +21,7 @@ struct ContentView: View {
     ]
     
     func addPet() {
+        isEditing = false
         let pet = Pet(name: "Best Friend")
         modelContext.insert(pet)
         path = [pet]

@@ -13,7 +13,19 @@ struct EditPetView: View {
     @Bindable var pet: Pet
     
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        Form {
+            // MARK: - IMAGE
+            
+            // MARK: - PHOTO PICKER
+            
+            // MARK: - TEXT FIELD
+            
+            // MARK: - BUTTON
+            
+        } //: FORM
+        .listStyle(.plain)
+        .navigationTitle("Edit \(pet.name)")
+        .navigationBarTitleDisplayMode(.inline)
     }
 }
 

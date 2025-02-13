@@ -64,7 +64,8 @@ struct ContentView: View {
                                     if isEditing {
                                         Menu {
                                             Button("Delete", systemImage: "trash", role: .destructive) {
-                                                
+                                                modelContext.delete(pet)
+                                                try? modelContext.save()
                                             }
                                         } label: {
                                             Image(systemName: "trash.circle.fill")

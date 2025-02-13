@@ -7,10 +7,13 @@
 
 import SwiftUI
 import SwiftData
+import PhotosUI
 
 struct EditPetView: View {
     // We use this property binding to create bindings to mutable properties of a data modal objects that conforms to the observable protocol.
     @Bindable var pet: Pet
+    
+    @State private var photosPickerItem: PhotosPickerItem?
     
     var body: some View {
         Form {
@@ -29,6 +32,11 @@ struct EditPetView: View {
             }
                 
             // MARK: - PHOTO PICKER
+            PhotosPicker(selection: $photosPickerItem, matching: .images) {
+                Label("Select a Photo", systemImage: "photo.badge.plus")
+                    .frame(minWidth: 0, maxWidth: .infinity)
+            }
+            .listRowSeparator(.hidden)
             
             // MARK: - TEXT FIELD
             TextField("Name", text: $pet.name)

@@ -19,6 +19,10 @@ struct EditPetView: View {
             // MARK: - PHOTO PICKER
             
             // MARK: - TEXT FIELD
+            TextField("Name", text: $pet.name)
+                .textFieldStyle(.roundedBorder)
+                .font(.largeTitle.weight(.light))
+                .padding(.vertical)
             
             // MARK: - BUTTON
             

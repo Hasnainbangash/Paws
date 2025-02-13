@@ -13,6 +13,7 @@ struct ContentView: View {
     @Query private var pets: [Pet]
     
     @State private var path = [Pet]()
+    @State private var isEditing: Bool = false
     
     let layout = [
         GridItem(.flexible(minimum: 120)),
@@ -69,8 +70,17 @@ struct ContentView: View {
             .navigationTitle(pets.isEmpty ? "" : "PAWS")
             .navigationDestination(for: Pet.self, destination: EditPetView.init)
             .toolbar {
+                ToolbarItem(placement: .topBarLeading) {
+                    Button {
+                        withAnimation {
+                            isEditing.toggle()
+                        }
+                    } label: {
+                        Image(systemName: "slider.horizontal.3")
+                    }
+                }
+                
                 ToolbarItem(placement: .topBarTrailing) {
-                    // Button("Add a New Pet", systemImage: "plus.circle")
                     Button("Add a new pet", systemImage: "plus.circle", action: addPet)
                 }
             }

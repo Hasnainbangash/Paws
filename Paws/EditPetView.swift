@@ -10,6 +10,7 @@ import SwiftData
 import PhotosUI
 
 struct EditPetView: View {
+    @Environment(\.dismiss) private var dismiss
     // We use this property binding to create bindings to mutable properties of a data modal objects that conforms to the observable protocol.
     @Bindable var pet: Pet
     
@@ -51,7 +52,7 @@ struct EditPetView: View {
             
             // MARK: - BUTTON
             Button {
-                
+                dismiss()
             } label: {
                 Text("Save")
                     .font(.title3.weight(.medium))

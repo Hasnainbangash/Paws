@@ -60,6 +60,23 @@ struct ContentView: View {
                                 .frame(minWidth: 0,maxWidth: .infinity, minHeight: 0, maxHeight: .infinity)
                                 .background(.ultraThinMaterial)
                                 .clipShape(RoundedRectangle(cornerRadius: 8, style: .circular))
+                                .overlay(alignment: .topTrailing) {
+                                    if isEditing {
+                                        Menu {
+                                            Button("Delete", systemImage: "trash", role: .destructive) {
+                                                
+                                            }
+                                        } label: {
+                                            Image(systemName: "trash.circle.fill")
+                                                .resizable()
+                                                .aspectRatio(contentMode: .fill)
+                                                .frame(width: 36, height: 36)
+                                                .foregroundStyle(.red)
+                                                .symbolRenderingMode(.multicolor)
+                                                .padding()
+                                        }
+                                    }
+                                }
                             } //: NAVLINK
                             .foregroundStyle(.primary)
                         } //: LOOP
